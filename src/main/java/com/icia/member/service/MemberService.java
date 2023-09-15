@@ -18,9 +18,30 @@ public class MemberService {
 
     public void save(MemberDTO memberDTO) throws IOException {
         if (memberDTO.getMemberProfile().get(0).isEmpty()) {
-            // 파일이 없을 경우
-            memberDTO.setMemberProfile(0);
+            // 0번째 인덱스에 파일이없어서 값이 없다
+            memberDTO.setFileAttached(0);
             memberRepository.save(memberDTO);
+        } else {
+            memberDTO.setFileAttached(1);
+            MemberDTO savedMember = memberRepository.save(memberDTO);
+
+            for(MultipartFile memberFile: memberDTO.getMemberFile()) {
+                String originalFilename = memberFile.getOriginalFilename();
+                System.out.println("originalFilename = " + originalFilename);
+                System.out.println(System.currentTimeMillis());
+                String storedFileName = System.currentTimeMillis() + "-" + originalFilename;
+                System.out.println("storedFileName = " + storedFileName);
+
+                MemberFileDTO memberFileDTO = new MemberFileDTO();
+                memberFileDTO.setOriginalFileName(originalFilename);
+                memberFileDTO.setStoreFileName(storedFileName);
+                memberFileDTO.setMemberId(savedMember.getId());
+
+                String savePath = "D:\\spring_img\\" + storedFileName;
+                memberFile.transferTo(new File(savePath));
+                // board_file_table 저장 처리
+                memberRepository.saveFile(memberFileDTO);
+            }
         }
     }
 }
