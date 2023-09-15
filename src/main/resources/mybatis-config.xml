@@ -6,5 +6,6 @@
 <!--        <typeAlias type="com.icia.member.dto.CommentDTO" alias="comment"></typeAlias>-->
 <!--        <typeAlias type="com.icia.member.dto.PostDTO" alias="post"></typeAlias>-->
         <typeAlias type="com.icia.member.dto.MemberDTO" alias="member"></typeAlias>
+
     </typeAliases>
 </configuration>

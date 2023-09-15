@@ -22,7 +22,7 @@
         <input type="text" name="memberPassword" placeholder="비밀번호"> <br>
         <input type="text" name="memberName" placeholder="이름"> <br>
         <input type="text" name="memberMobile" placeholder="전화번호"> <br>
-        <input type="text" name="memberProfile" placeholder="프로필사진"> <br>
+        <input type="file" name="memberProfile" placeholder="프로필사진" multiple> <br>
         <input type="submit" value="회원가입">
     </form>
 </div>

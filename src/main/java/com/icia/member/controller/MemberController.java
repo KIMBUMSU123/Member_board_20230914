@@ -8,23 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
+
 @Controller
-public class MemberController{
+public class MemberController {
     @Autowired
     private MemberService memberService;
 
     @GetMapping("/save")
-    private String saveForm(){
+    private String saveForm() {
         return "memberSave";
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute MemberDTO memberDTO){
-        boolean result = memberService.save(memberDTO);
-        if (result){
-            return "memberLogin";
-        }else{
-            return "memberSave";
-        }
+    public String save(@ModelAttribute MemberDTO memberDTO) throws IOException {
+//        memberService.save(memberDTO);
+        return "redirect:/";
     }
 }
+

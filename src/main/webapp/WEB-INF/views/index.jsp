@@ -8,7 +8,7 @@
 
 <%@include file="component/header.jsp" %>
 <%@include file="component/nav.jsp" %>
-<h2>회원제게시판</h2>
+<h2>회원제 게시판</h2>
 
 <%@include file="component/footer.jsp" %>
 </body>
