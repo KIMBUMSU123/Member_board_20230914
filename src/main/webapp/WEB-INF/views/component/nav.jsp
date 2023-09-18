@@ -28,9 +28,9 @@
   if (loginEmail.length != 0) {
     // 로그인 했음
     loginArea.innerHTML = "<a href='/mypage'>" + loginEmail + "님 환영해요!</a>" +
-            "<a href='/logout'>logout</a>";
+            "<a href='/member/logout'>logout</a>";
   } else {
     // 로그인 안했음
-    loginArea.innerHTML = "<a href='/login'>로그인</a>";
+    loginArea.innerHTML = "<a href='/member/login'>로그인</a>";
   }
 </script>
