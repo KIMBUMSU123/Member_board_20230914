@@ -3,9 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-<!--        <typeAlias type="com.icia.member.dto.CommentDTO" alias="comment"></typeAlias>-->
-<!--        <typeAlias type="com.icia.member.dto.PostDTO" alias="post"></typeAlias>-->
         <typeAlias type="com.icia.member.dto.MemberDTO" alias="member"></typeAlias>
+        <typeAlias type="com.icia.member.dto.MemberFileDTO" alias="memberFile"></typeAlias>
 
+<!--        <typeAlias type="com.icia.member.dto.PostDTO" alias="comment"></typeAlias>-->
     </typeAliases>
 </configuration>
