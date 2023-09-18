@@ -65,7 +65,16 @@ public class MemberController {
         session.removeAttribute("loginEmail");
         return "redirect:/";
     }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id, HttpSession session ){
+        memberService.delete("id");
+        session.removeAttribute("loginMember");
+        return "redirect:/memberList";
+    }
+
 }
+
 
 
 

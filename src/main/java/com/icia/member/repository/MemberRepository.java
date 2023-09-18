@@ -35,4 +35,8 @@ public class MemberRepository {
     public MemberDTO login(MemberDTO memberDTO) {
         return sql.selectOne("Member.login", memberDTO);
     }
+
+    public void delete(String id) {
+        sql.delete("Member.delete",id);
+    }
 }

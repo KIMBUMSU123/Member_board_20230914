@@ -61,4 +61,8 @@ public class MemberService {
             return false;
         }
     }
+
+    public void delete(String id) {
+        memberRepository.delete(id);
+    }
 }
