@@ -18,4 +18,19 @@ public class CommentRepository {
         return sql.insert("Comment.save",postDTO);
     }
 
+    public List<PostDTO> pagingList(Map<String, Integer> pagingParams) {
+        return sql.selectList("Comment.pagingList", pagingParams);
+    }
+
+    public int boardCount() {
+        return sql.selectOne("Comment.count");
+    }
+
+    public List<PostDTO> searchList(Map<String, Object> searchParam) {
+        return sql.selectList("Comment.search", searchParam);
+    }
+
+    public int boardSearchCount(Map<String, String> pagingParams) {
+        return sql.selectOne("Comment.searchCount", pagingParams);
+    }
 }

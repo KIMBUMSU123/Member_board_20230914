@@ -30,8 +30,36 @@ public class CommentController {
         }
     }
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     private String boardListForm(){
+        return "boardPages/boardList";
+    }
+
+    @GetMapping("/list")
+    public String findAll(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                          @RequestParam(value = "q", required = false, defaultValue = "") String q,
+                          @RequestParam(value = "type", required = false, defaultValue = "boardTitle") String type,
+                          Model model) {
+        // 검색이든 아니든 필요한 정보: boardList, paging
+        List<PostDTO> postDTOList = null;
+        PageDTO pageDTO = null;
+
+
+        // 검색요정인자 아닌지 구분
+        if(q.equals("")){
+            //일반 페이지 요청
+            postDTOList = commentService.pagingList(page);
+            pageDTO = commentService.pageNumber(page);
+        }else{
+            // 검색 페이지 요청
+            postDTOList = commentService.searchList(q, type, page);
+            pageDTO = commentService.searchPageNumber(q, type, page);
+        }
+        model.addAttribute("boardList", postDTOList);
+        model.addAttribute("paging", pageDTO);
+        model.addAttribute("q",q);
+        model.addAttribute("type",type);
+        model.addAttribute("page",page);
         return "boardPages/boardList";
     }
 }
