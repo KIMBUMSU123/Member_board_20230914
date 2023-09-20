@@ -12,6 +12,7 @@ public class BoardCommentRepository {
     @Autowired
     private SqlSessionTemplate sql;
     public void save(CommentDTO commentDTO) {
+        System.out.println("commentDTO = " + commentDTO);
         sql.insert("Board_Comment.save",commentDTO);
 
     }
