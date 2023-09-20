@@ -1,5 +1,7 @@
 package com.icia.member.repository;
 
+import com.icia.member.dto.MemberDTO;
+import com.icia.member.dto.PageDTO;
 import com.icia.member.dto.PostDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +38,14 @@ public class CommentRepository {
 
     public List<PostDTO> findAll() {
         return sql.selectList("Comment.findAll");
+    }
+
+
+    public PostDTO findbyId(Long id) {
+        return sql.selectOne("Comment.findById",id);
+    }
+
+    public void updateHits(Long id) {
+        sql.update("Comment.updateHits",id);
     }
 }

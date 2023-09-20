@@ -1,5 +1,6 @@
 package com.icia.member.service;
 
+import com.icia.member.dto.MemberDTO;
 import com.icia.member.dto.PageDTO;
 import com.icia.member.dto.PostDTO;
 import com.icia.member.repository.CommentRepository;
@@ -98,5 +99,15 @@ public class CommentService {
         pageDTO.setEndPage(endPage);
         pageDTO.setStartPage(startPage);
         return pageDTO;
+    }
+
+
+    public PostDTO findById(Long id) {
+        PostDTO postDTO = commentRepository.findbyId(id);
+        return postDTO;
+    }
+
+    public void updateHits(Long id) {
+        commentRepository.updateHits(id);
     }
 }

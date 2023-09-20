@@ -1,4 +1,5 @@
 package com.icia.member.controller;
+import com.icia.member.dto.MemberDTO;
 import com.icia.member.dto.PageDTO;
 import com.icia.member.dto.PostDTO;
 import com.icia.member.service.CommentService;
@@ -30,10 +31,6 @@ public class CommentController {
         }
     }
 //에헤이조젔네이거
-    @PostMapping("/list")
-        private String boardListForm(){
-            return "boardPages/boardList";
-    }
 
     @GetMapping("/list")
     public String findAll(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
@@ -60,6 +57,16 @@ public class CommentController {
         model.addAttribute("q",q);
         model.addAttribute("type",type);
         model.addAttribute("page",page);
-        return "boardPages/boardList";
+        return "/boardPages/boardList";
     }
+    @GetMapping("/detail")
+    public String findById(@RequestParam("id") Long id, Model model) {
+        commentService.updateHits(id);
+        PostDTO postDTO = commentService.findById(id);
+        postDTO.setBoardHits(postDTO.getBoardHits()+1);
+        model.addAttribute("board", postDTO);
+        return "/boardPages/boardDetail";
+    }
+
 }
+

@@ -4,12 +4,18 @@
 
 <mapper namespace="Comment">
     <insert id="save" parameterType="comment" useGeneratedKeys="true" keyProperty="id">
-        insert into Member_data(boardTitle, boardWriter, boardContents,boardHits,createdAt,fileAttached)
-        values (#{boardTitle}, #{boardWriter}, #{boardContents},#{boardHits},#{createdAt},#{fileAttached})
+        insert into Member_data(boardTitle, boardWriter, boardContents,boardHits,fileAttached)
+        values (#{boardTitle}, #{boardWriter}, #{boardContents},#{boardHits},#{fileAttached})
     </insert>
     <select id="findAll" parameterType="Long" resultType="comment">
         select * from Member_data;
     </select>
+    <select id="findById" parameterType="Long" resultType="comment">
+        select * from Member_data where id=#{id}
+    </select>
+    <update id="updateHits" parameterType="Long">
+        update Member_data set boardHits = boardHits + 1 where id = #{id}
+    </update>
     <select id="pagingList" parameterType="java.util.HashMap" resultType="comment">
         select id, boardWriter, boardTitle,
                date_format(createdAt, "%y-%m-%d %H:%i:%s") as createdAt, boardHits

@@ -15,4 +15,5 @@ public class PostDTO {
     private int boardHits;
     private String createdAt;
     private int fileAttached;
+    private String boardPass;
 }

@@ -11,6 +11,7 @@ public class CommentDTO {
     private Long id;
     private int boardId;
     private String commentWriter;
+    private String commentContents;
     private String createdAt;
 
 }
