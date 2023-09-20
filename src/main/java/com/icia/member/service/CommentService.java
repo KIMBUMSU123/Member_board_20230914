@@ -26,8 +26,11 @@ public class CommentService {
         }
     }
 
+    public List<PostDTO> findAll(){
+        return commentRepository.findAll();
+    }
     public List<PostDTO> pagingList(int page) {
-        int pageLimit = 3; // 한페이지당 보여줄 글 갯수
+        int pageLimit = 5; // 한페이지당 보여줄 글 갯수
         int pagingStart = (page - 1) * pageLimit; // 요청한 페이지에 보여줄 첫번째 게시글의 순서
         Map<String, Integer> pagingParams = new HashMap<>();
         pagingParams.put("start", pagingStart);

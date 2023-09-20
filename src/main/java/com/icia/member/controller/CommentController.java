@@ -29,10 +29,10 @@ public class CommentController {
 
         }
     }
-
+//에헤이조젔네이거
     @PostMapping("/list")
-    private String boardListForm(){
-        return "boardPages/boardList";
+        private String boardListForm(){
+            return "boardPages/boardList";
     }
 
     @GetMapping("/list")

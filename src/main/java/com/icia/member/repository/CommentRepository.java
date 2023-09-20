@@ -33,4 +33,8 @@ public class CommentRepository {
     public int boardSearchCount(Map<String, String> pagingParams) {
         return sql.selectOne("Comment.searchCount", pagingParams);
     }
+
+    public List<PostDTO> findAll() {
+        return sql.selectList("Comment.findAll");
+    }
 }

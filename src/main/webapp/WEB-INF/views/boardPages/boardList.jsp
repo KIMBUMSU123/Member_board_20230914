@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -35,7 +35,6 @@
                 <th>글번호</th>
                 <th>제목</th>
                 <th>작성자</th>
-                <th>글내용</th>
                 <th>작성시간</th>
                 <th>조회수</th>
             </tr>
@@ -44,7 +43,6 @@
                     <td>${board.id}</td>
                     <td><a href="/board?id=${board.id}&page=${paging.page}&q=${q}&type=${type}">${board.boardTitle}</a></td>
                     <td>${board.boardWriter}</td>
-                    <td>${board.boardContents}</td>
                     <td>${board.createdAt}</td>
                     <td>${board.boardHits}</td>
                 </tr>
@@ -96,8 +94,8 @@
                 </c:when>
                 <c:otherwise>
                     <li class="page-item">
-                        <a class="page-link" href="/board/list?page=$&q=${q}&type=${type}">[다음]</a>
-                    </li>{paging.page+1}
+                        <a class="page-link" href="/board/list?page=${paging.page+1}&q=${q}&type=${type}">[다음]</a>
+                    </li>
                 </c:otherwise>
             </c:choose>
         </ul>
