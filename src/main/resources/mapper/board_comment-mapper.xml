@@ -8,9 +8,10 @@
             values (#{commentWriter}, #{commentContents},#{boardId})
     </insert>
     <select id="findAll" parameterType="Long" resultType="board_comment">
-        select id, commentWriter, commentContents,
-               date_format(createdAt, "%y-%m-%d %H:%i:%s") as createdAt, boardId
-           from Member_post where boardId = #{boardId} order by id desc
+--         select id, commentWriter, commentContents,
+--                date_format(createdAt, "%y-%m-%d %H:%i:%s") as createdAt, boardId
+--            from Member_post where boardId = #{boardId} order by id desc
+            select * from Member_post
     </select>
 </mapper>
 

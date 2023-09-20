@@ -1,7 +1,9 @@
 package com.icia.member.controller;
+import com.icia.member.dto.CommentDTO;
 import com.icia.member.dto.MemberDTO;
 import com.icia.member.dto.PageDTO;
 import com.icia.member.dto.PostDTO;
+import com.icia.member.service.BoardCommentService;
 import com.icia.member.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import java.util.List;
 public class CommentController {
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private BoardCommentService boardCommentService;
     @GetMapping("/save")
     private String boardsaveForm(){
         return "boardPages/boardSave";

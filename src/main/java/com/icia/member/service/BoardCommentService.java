@@ -11,11 +11,13 @@ import java.util.List;
 public class BoardCommentService {
     @Autowired
     private BoardCommentRepository boardCommentRepository;
+
     public void save(CommentDTO commentDTO) {
         boardCommentRepository.save(commentDTO);
     }
 
     public List<CommentDTO> findAll(int boardId) {
-        return boardCommentRepository.findALl(boardId);
+        return boardCommentRepository.findAll(boardId);
+
     }
 }

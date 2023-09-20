@@ -17,7 +17,7 @@ public class BoardCommentRepository {
 
     }
 
-    public List<CommentDTO> findALl(int boardId) {
+    public List<CommentDTO> findAll(int boardId) {
         return sql.selectList("Board_Comment.findAll",boardId);
     }
 }
